@@ -1,0 +1,182 @@
+/* Here is the complete CSS file to make the header attractive and responsive.
+  It's generally a good idea to add some base styles to your root.
+*/
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --text-dark: #333;
+    --text-light: #555;
+    --border-color: #ddd;
+    --background-light: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius-md: 8px;
+}
+
+/* --- Main Header Styling --- */
+.header {
+    background-color: var(--background-light);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    /* Make the header stick to the top on scroll */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding doesn't add to width */
+}
+
+/* This new .header-content class is used to align items.
+  - display: flex -> Use flexbox
+  - justify-content: space-between -> Puts logo on the left and nav/controls on the right
+  - align-items: center -> Vertically centers everything
+  - max-width/margin -> Centers the content on large screens
+*/
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* Allows items to wrap on smaller screens */
+}
+
+/* --- Logo Styling --- */
+.header-logo a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Right-side Wrapper (Nav + Controls) --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* Space between nav and controls */
+    flex-wrap: wrap;
+    /* Allow wrapping */
+}
+
+/* --- Navigation Links --- */
+.header-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    /* Space between nav links */
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    /* For hover/active effect */
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: var(--primary-hover);
+}
+
+/* This class is applied by React Router's NavLink */
+.header-nav a.active-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Search and Sort Controls --- */
+.controls-bar-header {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.search-input-header,
+.sort-select-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.search-input-header:focus,
+.sort-select-header:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--background-light);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* --- Responsive Design --- */
+
+/* For tablets and smaller devices */
+@media (max-width: 992px) {
+    .header-content {
+        /* Stack logo and right-side content vertically */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .header-right {
+        /* Make nav and controls stack and take full width */
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .header-nav ul {
+        /* You could also make this column for a mobile menu */
+        width: 100%;
+    }
+
+    .controls-bar-header {
+        width: 100%;
+    }
+
+    .search-input-header,
+    .sort-select-header {
+        /* Make controls full-width */
+        width: 100%;
+        box-sizing: border-box;
+        /* Ensure padding doesn't break layout */
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 1rem;
+        /* Less padding on small screens */
+    }
+
+    .header-nav ul {
+        /* Stack nav links vertically */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .header-nav a {
+        padding: 0.5rem 0;
+        /* Easier to tap */
+        border-bottom: none;
+    }
+
+    .header-nav a.active-link {
+        border-bottom: none;
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,83 @@
+/* UpdateRoom.css */
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+.room-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.room-form input,
+.room-form textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.room-form input:focus,
+.room-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.room-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.update-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.update-btn:active {
+    background-color: #004494;
+    transform: scale(0.98);
+}
+/* Reuse your AddDetails.css styling for input and button */
+
+.photo-preview {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.photo-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.photo-preview img:hover {
+    transform: scale(1.03);
+}

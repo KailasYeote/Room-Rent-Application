@@ -1,0 +1,5 @@
+.room-image {
+    width: 100%;
+    height: 220px; /* Give a fixed height to all carousel images */
+    object-fit: cover; /* Make sure the image covers the area, not stretch */
+}
